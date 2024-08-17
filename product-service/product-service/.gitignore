@@ -1,5 +1,6 @@
 HELP.md
-product-service/product-service/data/
+#add data folder
+data/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
