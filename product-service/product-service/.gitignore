@@ -1,5 +1,5 @@
 HELP.md
-data
+product-service/data
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
