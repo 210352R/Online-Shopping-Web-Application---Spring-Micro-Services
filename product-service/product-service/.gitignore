@@ -32,3 +32,18 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### MongoDB ###
+/data/
+/log/
+.wt
+/journal/
+.lock
+.mongodb/
+### Mac OS ###
+.DS_Store
+/mysql/
+/volume-data/
+/data/
+/docker/tempo/tempo-data/
+/docker/tempo/tempo-data/
