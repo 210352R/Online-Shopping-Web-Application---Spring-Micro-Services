@@ -17,9 +17,11 @@ public class OrderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public OrderResponse addOrder(@RequestBody OrderRequest orderRequest) {
+    public String addOrder(@RequestBody OrderRequest orderRequest) {
         log.info("Adding order");
-        return orderService.placeOrder(orderRequest);
+        OrderResponse  orderResponse= orderService.placeOrder(orderRequest);
+        log.info("Order placed successfully : "+orderResponse);
+        return "Order placed successfully";
     }
 
 }
