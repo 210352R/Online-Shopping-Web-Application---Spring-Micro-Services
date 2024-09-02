@@ -3,6 +3,7 @@ package com.eshan.microservices.order.service;
 import com.eshan.microservices.order.client.InventoryClient;
 import com.eshan.microservices.order.dto.OrderRequest;
 import com.eshan.microservices.order.dto.OrderResponse;
+import com.eshan.microservices.order.event.OrderPlacedEvent;
 import com.eshan.microservices.order.model.Order;
 import com.eshan.microservices.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,11 @@ public class OrderService {
             order.setSkuCode(orderRequest.skuCode());
             order.setQuantity(orderRequest.quantity());
             orderRepository.save(order);
+
+            // Add kafka Topic -------------------- OrderPlaced Event
+            OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderRequest.userDetails().email());
+
+
             return new OrderResponse(order.getId(), order.getOrderNumber(), order.getSkuCode(), order.getPrice(), order.getQuantity());
         }
 
